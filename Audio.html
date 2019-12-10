@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <meta charset="utf-8" />
+    <link href='audio.css' rel="stylesheet">
+</head>
+ 
+<body>
+    <p>It was a __(noun)__, cold December evening.</p>
+    <p>I woke up to the __(adjective)__ smell of __(food)__</p>
+    <p>I __(verb)__ down the stairs and tripped into a __(vehicle)__.</p>
+    <p>Then it flew into the __(place)__ destorying everything in its path.</p>
+   
+    <p>
+        Noun: <input id='noun' type="text"></p>
+    <p>
+        Adjective: <input id='adj' type="text"></p>
+    <p>
+        Adjective: <input id='adj2' type="text"></p>
+    <p>
+        Food: <input id='food' type="text"></p>
+    <p>
+        Verb: <input id='verb' type="text"></p>
+    <p>
+        Vehicle: <input id='vehicle' type="text"></p>
+    <p> 
+        Place: <input id='place' type="text"></p>
+   
+    <div class="button"><button onclick="output()">Submit</button></div>
+    <p id='output'> </p>
+ 
+<script>
+    function output() {
+ 
+ 
+        var noun = document.getElementById('noun').value;
+        var adj = document.getElementById('adj').value;
+        var adj2 = document.getElementById('adj2').value;
+        var food = document.getElementById('food').value;
+        var verb = document.getElementById('verb').value;
+        var vehicle = document.getElementById('vehicle').value;
+        var place = document.getElementById('place').value;
+ 
+        var s1 = `It was a ${adj} cold December evening. `;
+        var s2 = `I woke up to the ${adj2} smell of ${food}. `;
+        var s3 = `I ${verb} down the stairs and tripped into a ${vehicle}. `;
+        var s4 = `Then it flew into the ${place} destroying everything in its path.`;
+ 
+        var storyf = '<p id="p1">' + s1 + s2 + s3 + s4 + '</p>' ;
+        
+        
+        document.write(storyf);
+        document.body.style.backgroundColor = 'rgb(95,158,160)';
+        document.getElementById("p1").style.fontFamily = "fantasy";
+        document.getElementById("p1").style.fontSize = "25px";
+        document.getElementById("p1").style.textAlign = "center";
+        var storys = new SpeechSynthesisUtterance(storyf);
+        window.speechSynthesis.speak(storys);
+}
+</script>
+ 
+</body>
+</html>
